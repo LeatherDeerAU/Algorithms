@@ -9,7 +9,7 @@ https://leetcode.com/problems/non-overlapping-intervals/#
 
 ```python
 def eraseOverlapIntervals(self, intervals: List[List[int]]) -> int:
-    intervals.sort()
+    intervals.sort(key=lambda x: x[0])
     ans = 0
     prev = float('-inf')
     for interval in intervals:
