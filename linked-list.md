@@ -7,6 +7,7 @@
 + [remove-nth-node-from-end-of-list](#remove-nth-node-from-end-of-list)
 + [linked-list-cycle-ii](#linked-list-cycle-ii)
 + [linked-list-cycle](#linked-list-cycle)
++ [reorder-list](#reorder-list)
 
 
 ##reverse-linked-list
@@ -164,6 +165,34 @@ https://leetcode.com/problems/linked-list-cycle/
                 return head
             head = head.next
         return None
+
+```
+
+##reorder-list
+
+https://leetcode.com/problems/reorder-list/
+
+```python
+    def reorderList(self, head: ListNode) -> None:
+        """
+        Do not return anything, modify head in-place instead.
+        """
+        if not head:
+            return head
+
+        def getList(head):
+            ls = []
+            while head:
+                ls.append(head)
+                head = head.next
+            return ls
+    
+        ls = getList(head)
+
+        for i in range(1,len(ls)//2+1):
+            ls[i-1].next = ls[len(ls)-i]
+            ls[len(ls)-i].next = ls[i]
+            ls[len(ls)//2].next = None
 
 ```
 
