@@ -3,6 +3,7 @@
 + [reverse-linked-list](#reverse-linked-list)
 + [middle-of-the-linked-list](#middle-of-the-linked-list)
 + [palindrome-linked-list](#palindrome-linked-list)
++ [merge-two-sorted-lists](#merge-two-sorted-lists)
 
 
 ##reverse-linked-list
@@ -63,5 +64,37 @@ def isPalindrome(self, head: ListNode) -> bool:
         return True
     else:
         return False
+
+```
+
+##merge-two-sorted-lists
+
+https://leetcode.com/problems/merge-two-sorted-lists/
+
+```python
+def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
+    if l1 is None:
+        return l2
+    if l2 is None:
+        return l1
+
+    ans = ListNode(0)
+    newList = ans
+    while l1 != None and l2 != None:
+        if l1.val <= l2.val:
+            newList.next = l1
+            l1 = l1.next
+        else:
+            newList.next = l2
+            l2 = l2.next
+
+        newList = newList.next
+
+    if l1 == None:
+        newList.next = l2
+    elif l2 == None:
+        newList.next = l1
+
+    return ans.next
 
 ```
