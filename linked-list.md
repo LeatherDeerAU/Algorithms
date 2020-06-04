@@ -5,6 +5,7 @@
 + [palindrome-linked-list](#palindrome-linked-list)
 + [merge-two-sorted-lists](#merge-two-sorted-lists)
 + [remove-nth-node-from-end-of-list](#remove-nth-node-from-end-of-list)
++ [linked-list-cycle-ii](#linked-list-cycle-ii)
 
 
 ##reverse-linked-list
@@ -125,5 +126,24 @@ def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
         current.next = current.next.next
 
     return head
+
+```
+
+##linked-list-cycle-ii
+
+https://leetcode.com/problems/linked-list-cycle-ii/
+
+```python
+class Solution:
+    def detectCycle(self, head: ListNode) -> ListNode:
+        nodes = set()
+
+        while head:
+            if head not in nodes:
+                nodes.add(head)
+            else:
+                return head
+            head = head.next
+        return None
 
 ```
