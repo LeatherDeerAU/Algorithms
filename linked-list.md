@@ -4,6 +4,7 @@
 + [middle-of-the-linked-list](#middle-of-the-linked-list)
 + [palindrome-linked-list](#palindrome-linked-list)
 + [merge-two-sorted-lists](#merge-two-sorted-lists)
++ [remove-nth-node-from-end-of-list](#remove-nth-node-from-end-of-list)
 
 
 ##reverse-linked-list
@@ -96,5 +97,33 @@ def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
         newList.next = l1
 
     return ans.next
+
+```
+
+##remove-nth-node-from-end-of-list
+
+https://leetcode.com/problems/remove-nth-node-from-end-of-list/
+
+```python
+def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
+    current = head
+    count = 0
+
+    while current:
+        current = current.next
+        count += 1
+
+    i = 0
+    current = head
+    while i < count - n - 1:
+        current = current.next
+        i += 1
+
+    if n == count:
+        head = current.next
+    else:
+        current.next = current.next.next
+
+    return head
 
 ```
