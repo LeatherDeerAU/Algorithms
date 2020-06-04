@@ -41,3 +41,24 @@ def threeSum(self, nums: List[int]) -> List[List[int]]:
     return list(ans)
 
 ```
+
+##subarray-sum-equals-k
+
+https://leetcode.com/problems/subarray-sum-equals-k/#
+
+```python
+def subarraySum(self, nums: List[int], k: int) -> int:
+    dict = {}
+    sum = count = 0
+    dict[0] = 1
+    for i in range(len(nums)):
+        sum += nums[i]
+        if sum - k in dict:
+            count += dict[sum - k]
+        if sum in dict:
+            dict[sum] += 1
+        else:
+            dict[sum] = 1
+    return count
+
+```
