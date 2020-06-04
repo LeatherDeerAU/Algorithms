@@ -1,6 +1,7 @@
 # Linked-list
 
 + [reverse-linked-list](#reverse-linked-list)
++ [middle-of-the-linked-list](#middle-of-the-linked-list)
 
 
 ##reverse-linked-list
@@ -20,5 +21,25 @@ def reverseList(self, head: ListNode) -> ListNode:
         curr = curr.next
 
     return newNode
+
+```
+
+##middle-of-the-linked-list
+
+https://leetcode.com/problems/middle-of-the-linked-list/#
+
+```python
+def middleNode(self, head: ListNode) -> ListNode:
+    count = 1
+    cur = head
+    while cur.next != None:
+        cur = cur.next
+        count += 1
+
+    count = count // 2 + 1
+
+    for i in range(count - 1):
+        head = head.next
+    return head
 
 ```
